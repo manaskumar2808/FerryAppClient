@@ -1,0 +1,85 @@
+.SignupContainer {
+    height: 500px;
+    width: 800px;
+    margin: auto;
+    margin-top: 30px;
+    border: 0.5px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+.SignupDisplay {
+    flex: 3;
+    height: 100%;
+}
+
+.SignupImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.SignupFields {
+    flex: 2;
+    height: 100%;
+    padding: 20px;
+}
+
+.SignupLegend {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.SignupHelperContainer {
+    text-align: end;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.SignupHelper {
+    cursor: pointer;
+    font-size: 16px;
+    color: #1894ff !important;
+    margin: 0;
+    text-decoration: none;
+}
+
+.SignupButtonSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.PrevButtonContainer {
+    flex: 1;
+}
+
+.SignupButtonContainer {
+    flex: 6;
+}
+
+.SwitchContainer {
+    margin: auto;
+    text-align: center;
+}
+
+.SwitchText {
+    font-size: 15px;
+    margin: 0;
+}
+
+.SwitchLink {
+    text-decoration: none;
+    color: #1894ff;
+    font-size: 15px;
+}
+
+.ToastImage {
+    height: 55px;
+    width: 55px;
+    object-fit: cover;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ticket - Ferryhopper</title>
+    <link rel="icon" href="/ferryhopper.png" size="100x100" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/site.css" />
+    <link rel="stylesheet" href="../../styles/Ticket/Create.css" />
+</head>
+<body class="Container">
+    <header id="Navbar"></header>
+
+    <div class="TicketCreateContainer">
+        <form class="TicketCreateForm" id="TicketCreateForm">
+            <div validation-summary="ModelOnly" class="text-danger"></div>
+            <p class="TicketCreateLegend">Book Ticket</p>
+            <div class="form-group" style="display: none;">
+                <label for="Id" class="control-label"></label>
+                <input for="Id" class="form-control" />
+                <span validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="AdultCount" class="control-label">Adults</label>
+                <input for="AdultCount" id="AdultCount" type="number" class="form-control" value="1" min="1" max="10" />
+                <span validation-for="AdultCount" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display: none;">
+                <label for="Cost" class="control-label">Cost</label>
+                <input for="Cost" id="Cost" type="number" class="form-control" value="0" />
+                <span validation-for="Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display: none;">
+                <label for="RoomNo" class="control-label">Room No.</label>
+                <input for="RoomNo" id="RoomNo" type="number" class="form-control" value="0" />
+                <span validation-for="RoomNo" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display: none;">
+                <label for="UserId" class="control-label">User</label>
+                <!-- <input for="UserId" type="number" class="form-control" /> -->
+                <select for="UserId" id="UserId" class="form-select" items="@ViewBag.Users"></select>
+                <span validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display: none;">
+                <label for="FerryId" class="control-label">Ferry</label>
+                <!-- <input for="FerryId" type="number" class="form-control" /> -->
+                <select for="FerryId" id="FerryId" class="form-select" items="@ViewBag.Ferries"></select>
+                <span validation-for="FerryId" class="text-danger"></span>
+            </div>
+            <div style="height: 20px;"></div>
+            <div class="form-group">
+                <input type="submit" value="Book" class="btn btn-primary w-100" />
+            </div>
+            <div style="height: 20px;"></div>
+            <div style="flex: 1;"></div>
+            <div class="BackToListContainer">
+                <a class="BackToListText" href="/Ferry">Back to List</a>
+            </div>
+        </form>
+    </div>
+
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div class="toast-container top-0 end-0 p-3">
+            <div id="TicketToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="https://image.cnbcfm.com/api/v1/image/107078932-1655897308311-Saint-Malo-Extended-scaled_1.jpg?v=1655903662&w=1600&h=900" class="rounded me-2 ToastImage" alt="Toast Image">
+                    <strong class="me-auto">Ticket Booking Failed</strong>
+                    <small class="text-muted">just now</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div id="TicketToastBody" class="toast-body"></div>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="Footer"></footer>
+    <script type="module" src="../../scripts/Ticket/Create.js"></script>
+    <script type="module" src="../../scripts/site.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+.LogoutContainer {
+    margin: auto;
+    background-color: #ccc;
+    height: 80vh;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.LogoutView {
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    padding: 20px;
+    border: 0.5px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+}
+
+.LogoutLegend {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.LogoutText {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.LogoutButtonSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+}
+
+.LogoutButtonContainer {
+    flex: 1;
+}

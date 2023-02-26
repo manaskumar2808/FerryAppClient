@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ferryhopper</title>
+    <link rel="icon" href="/ferryhopper.png" size="100x100" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/site.css" />
+    <link rel="stylesheet" href="../../styles/Auth/Login.css" />
+</head>
+<body class="Container">
+    <header id="Navbar"></header>
+
+    <div class="LoginContainer">
+        <div class="LoginDisplay">
+            <img 
+                class="LoginImage" 
+                src="https://image.cnbcfm.com/api/v1/image/107078932-1655897308311-Saint-Malo-Extended-scaled_1.jpg?v=1655903662&w=1600&h=900" 
+                alt="Login Display Image"
+            />
+        </div>
+        <div class="LoginFields">
+            <form id="LoginForm">
+                <div validation-summary="ModelOnly" class="text-danger"></div>
+                <legend class="LoginLegend">Login</legend>
+                <div class="form-group">
+                    <label for="UserName" class="control-label">Username</label>
+                    <input for="UserName" id="UserName" class="form-control" />
+                    <span id="UserNameValidator" class="form-text text-danger"></span>
+                </div>
+                <div style="height: 20px;"></div>
+                <div class="form-group">
+                    <label for="Password" class="control-label">Password</label>
+                    <input for="Password" id="Password" type="password" class="form-control" />
+                    <span id="PasswordValidator" class="form-text text-danger"></span>
+                </div>
+                <div class="LoginHelperContainer">
+                    <a class="LoginHelper">Forgot password?</a>
+                </div>
+                <div style="height: 20px;"></div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary w-100" />
+                </div>
+                <div style="height: 40px;"></div>
+                <div class="SwitchContainer">
+                    <p class="SwitchText">Don't have an account?</p>
+                    <a class="SwitchLink" href="/Auth/Signup">Create new account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div class="toast-container top-0 end-0 p-3">
+            <div id="LoginToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="https://image.cnbcfm.com/api/v1/image/107078932-1655897308311-Saint-Malo-Extended-scaled_1.jpg?v=1655903662&w=1600&h=900" class="rounded me-2 ToastImage" alt="Toast Image">
+                    <strong class="me-auto">Login Failed</strong>
+                    <small class="text-muted">just now</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div id="LoginToastBody" class="toast-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="Footer"></footer>
+    <script type="module" src="../../scripts/Auth/Login.js"></script>
+    <script type="module" src="../../scripts/site.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+
+
+</html>

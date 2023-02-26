@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Ticket - Ferryhopper</title>
+    <link rel="icon" href="/ferryhopper.png" size="100x100" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/site.css" />
+    <link rel="stylesheet" href="../../styles/Ticket/Delete.css" />
+</head>
+<body class="Container">
+    <header id="Navbar"></header>
+
+    <div class="TicketDeleteContainer" id="TicketDeleteContainerID">
+    </div>
+
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div class="toast-container top-0 end-0 p-3">
+            <div id="TicketToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="https://image.cnbcfm.com/api/v1/image/107078932-1655897308311-Saint-Malo-Extended-scaled_1.jpg?v=1655903662&w=1600&h=900" class="rounded me-2 ToastImage" alt="Toast Image">
+                    <strong class="me-auto">Ticket Cancelling Failed</strong>
+                    <small class="text-muted">just now</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div id="TicketToastBody" class="toast-body"></div>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="Footer"></footer>
+    <script type="module" src="../../scripts/Ticket/Delete.js"></script>
+    <script type="module" src="../../scripts/site.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

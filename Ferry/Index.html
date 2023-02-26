@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferries - Ferryhopper</title>
+    <link rel="icon" href="/ferryhopper.png" size="100x100" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/site.css" />
+    <link rel="stylesheet" href="../styles/Ferry/Index.css" />
+</head>
+<body class="Container">
+    <header id="Navbar"></header>
+
+    <div class="FerryContainer">
+        <div class="FerrySearchContainer">
+            <form id="FerrySearchForm" class="row FerrySearch" method="get">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="FerryFieldContainer">
+                    <label for="origin-search" class="FerryFieldLabel">Origin</label>
+                    <input type="text" class="form-control" name="origin" id="origin-search" placeholder="Eg. Boston" />
+                </div>
+                <div class="FerryFieldContainer">
+                    <label for="destination-search" class="FerryFieldLabel">Destination</label>
+                    <input type="text" class="form-control" name="destination" id="destination-search" placeholder="Eg. San Fransisco" />
+                </div>
+                <div class="FerryFieldContainer">
+                    <label for="name-search" class="FerryFieldLabel">Name of Ferry</label>
+                    <input type="text" class="form-control" name="name" id="name-search" placeholder="Eg. Staten Island" />
+                </div>
+                <div class="FerryFieldContainer">
+                    <label for="departure-search" class="FerryFieldLabel">Departure Time</label>
+                    <input type="datetime-local" class="form-control" name="departure" id="departure-search" placeholder="Departure" />
+                </div>
+                <div class="FerryFieldContainer">
+                    <label for="min-charge-search" class="FerryFieldLabel">Min Charge</label>
+                    <input type="number" class="form-control" name="min_charge" id="min-charge-search" placeholder="Eg. 1200" min="0" max="10000" />
+                </div>
+                <div class="FerryFieldContainer">
+                    <label for="max-charge-search" class="FerryFieldLabel">Max Charge</label>
+                    <input type="number" class="form-control" name="max_charge" id="max-charge-search" placeholder="Eg. 4500" min="0" max="10000" />
+                </div>
+                <div class="FerryFieldContainer">
+                    <button type="submit" class="btn btn-primary w-100" id="ferry-search-button">Search</button>
+                </div>
+            </form>
+        </div>
+        <div style="width: 10px;"></div>
+        <div class="FerryListContainer">
+            <div class="FerryList" id="FerryListID">
+            </div>
+        </div>
+    </div>
+    
+    <footer id="Footer"></footer>
+    <script type="module" src="../scripts/Ferry/Index.js"></script>
+    <script type="module" src="../scripts/site.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
