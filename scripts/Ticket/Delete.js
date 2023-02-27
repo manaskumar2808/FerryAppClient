@@ -1,3 +1,5 @@
+import { api } from "../utility/api.js";
+
 const ticketDeleteContainerEle = document.querySelector('#TicketDeleteContainerID');
 
 const urlSearchParams = new URLSearchParams(window.location.search);
@@ -9,20 +11,7 @@ const ticketToastBody = document.getElementById('TicketToastBody');
 
 const fetchTicket = async () => {
     try {
-        const token = localStorage.getItem('token');
-        const response = await fetch('https://localhost:5001/api/ticket/' + id, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-        });
-
-        if(!response.ok) {
-            const { error } = await response.json();
-            throw new Error(error);
-        }
-
-        const ticket = await response.json();
+        const ticket = await api('ticket/' + id);
         return ticket;
     } catch(err) {
         return null;
@@ -32,18 +21,7 @@ const fetchTicket = async () => {
 const cancelTicket = async (e) => {
     e.preventDefault();
     try {
-        const token = localStorage.getItem('token');
-        const response = await fetch('https://localhost:5001/api/ticket/' + id, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-        });
-        if(!response.ok) {
-            const { error } = await response.json();
-            throw new Error(error);
-        }
+        await api('ticket/' + id, 'DELETE');
         window.location.href = '/Ticket';
     } catch(err) {
         ticketToastBody.innerText = err.message;
@@ -97,7 +75,7 @@ const init = async () => {
                 <div class="TicketDeleteContentMiddle">
                     <div class="TicketDeleteInfoContainer TicketDeleteCharge">
                         <legend class="TicketDeleteInfoLegend">Cost</legend>
-                        <p class="TicketDeleteInfoText">$${ticket.cost}t</p>
+                        <p class="TicketDeleteInfoText">$${ticket.cost}</p>
                     </div>
                     <div style="height: 10px"></div>
                     <div class="TicketDeleteInfoContainer TicketDeleteRooms">

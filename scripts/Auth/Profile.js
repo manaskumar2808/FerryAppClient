@@ -1,23 +1,19 @@
+import { api } from "../utility/api.js";
+
 const profileContainerEle = document.querySelector('#ProfileContainerID');
 
-const fetchProfile = async (id) => {
-    const token = localStorage.getItem('token');
-    const response = await fetch('https://localhost:5001/api/user/' + id, {
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-        },
-    });
-    const user = await response.json();
+const fetchProfile = async () => {
+    const user = await api('auth/profile');
     return user;
 }
 
 const init = async () => {
-    const id = localStorage.getItem('id');
-    if(!id)
+    const token = localStorage.getItem('token');
+    if(!token)
         window.location.href = '/Auth/Login';
 
-    const user = await fetchProfile(id);
+    const user = await fetchProfile();
+
     profileContainerEle.innerHTML = `
     <div class="ProfileView">
         <div class="ProfileDisplay">

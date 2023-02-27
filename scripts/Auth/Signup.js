@@ -1,17 +1,22 @@
+import { api } from "../utility/api.js";
+
 const userNameInput = document.getElementById('UserName');
-const nameInput = document.getElementById('Name');
+const firstNameInput = document.getElementById('FirstName');
+const lastNameInput = document.getElementById('LastName');
 const emailInput = document.getElementById('Email');
 const passwordInput = document.getElementById('Password');
 const confirmPasswordInput = document.getElementById('ConfirmPassword');
 
 const userNameValidator = document.getElementById('UserNameValidator');
-const nameValidator = document.getElementById('NameValidator');
+const firstNameValidator = document.getElementById('FirstNameValidator');
+const lastNameValidator = document.getElementById('LastNameValidator');
 const emailValidator = document.getElementById('EmailValidator');
 const passwordValidator = document.getElementById('PasswordValidator');
 const confirmPasswordValidator = document.getElementById('ConfirmPasswordValidator');
 
 const userNameField = document.getElementById('UserNameField');
-const nameField = document.getElementById('NameField');
+const firstNameField = document.getElementById('FirstNameField');
+const lastNameField = document.getElementById('LastNameField');
 const emailField = document.getElementById('EmailField');
 const passwordField = document.getElementById('PasswordField');
 const confirmPasswordField = document.getElementById('ConfirmPasswordField');
@@ -68,28 +73,13 @@ const signup = async (event) => {
         return;
 
     try {
-        const body = JSON.stringify({
+        const body = {
             userName: userNameInput.value,
-            name: nameInput.value,
+            name: firstNameInput.value + ' ' + lastNameInput.value,
             email: emailInput.value,
             password: passwordInput.value
-        });
-        
-        const response = await fetch('https://localhost:5001/api/auth/signup', {
-            method: 'POST',
-            body,
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }
-        });
-        
-        if(!response.ok) {
-            const { error } = await response.json();
-            throw new Error(error);
-        }
-
-        const { token, id, userName } = await response.json();
+        };
+        const { token, id, userName } = await api('auth/signup', 'POST', body);
         localStorage.setItem('token', token);
         localStorage.setItem('id', id);
         localStorage.setItem('userName', userName);
@@ -105,7 +95,8 @@ const updatePageContent = () => {
     if(page == 1) {
         userNameField.style.display = 'block';
         emailField.style.display = 'block';
-        nameField.style.display = 'block';
+        firstNameField.style.display = 'block';
+        lastNameField.style.display = 'block';
         passwordField.style.display = 'none';
         confirmPasswordField.style.display = 'none';
         nextButton.style.display = 'block';
@@ -114,7 +105,8 @@ const updatePageContent = () => {
     } else {
         userNameField.style.display = 'none';
         emailField.style.display = 'none';
-        nameField.style.display = 'none';
+        firstNameField.style.display = 'none';
+        lastNameField.style.display = 'none';
         passwordField.style.display = 'block';
         confirmPasswordField.style.display = 'block';
         nextButton.style.display = 'none';

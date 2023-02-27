@@ -1,8 +1,9 @@
+import { api } from "./scripts/utility/api.js";
+
 const homePortListEle = document.querySelector("#HomePortListID");
 
 const fetchPorts = async () => {
-    const response = await fetch('https://localhost:5001/api/port');
-    const ports = await response.json();
+    const ports = await api('port');
     return ports;
 }
 

@@ -1,3 +1,6 @@
+import { api } from "../utility/api.js";
+
+
 const userNameInput = document.getElementById('UserName');
 const passwordInput = document.getElementById('Password');
 
@@ -37,26 +40,12 @@ const login = async (event) => {
     if(!validate())
         return;
 
-    const body = JSON.stringify({
+    const body = {
         userName: userNameInput.value,
         password: passwordInput.value
-    });
+    };
     try {
-        const response = await fetch('https://localhost:5001/api/auth/login', {
-            method: 'POST',
-            body,
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }
-        });
-
-        if(!response.ok) {
-            const { error } = await response.json();
-            throw new Error(error);
-        }
-
-        const { token, id, userName } = await response.json();
+        const { token, id, userName } = await api('auth/login', 'POST', body);
         localStorage.setItem('token', token);
         localStorage.setItem('id', id);
         localStorage.setItem('userName', userName);

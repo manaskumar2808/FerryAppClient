@@ -26,19 +26,6 @@ const setAuth = () => {
     }
 }
 
-const header = () => {
-    const token = localStorage.getItem('token');
-    if(token) {
-        return {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        }
-    }
-    return {
-        'Content-Type': 'application/json',
-    }
-}
-
 const setNav = () => {
     if(headerEle == null)
         return;

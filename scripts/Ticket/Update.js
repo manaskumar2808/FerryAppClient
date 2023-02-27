@@ -1,3 +1,4 @@
+import { api } from "../utility/api.js";
 
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
@@ -19,20 +20,7 @@ let currentTicket = {};
 
 const fetchTicket = async () => {
     try {
-        const token = localStorage.getItem('token');
-        const response = await fetch('https://localhost:5001/api/ticket/' + id, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-        });
-
-        if(!response.ok) {
-            const { error } = await response.json();
-            throw new Error(error);
-        }
-
-        const ticket = await response.json();
+        const ticket = await api('ticket/' + id);
         return ticket;
     } catch(err) {
         return null;
@@ -42,26 +30,14 @@ const fetchTicket = async () => {
 const updateTicket = async (event) => {
     event.preventDefault();
     try {
-        const token = localStorage.getItem('token');
-        const body = JSON.stringify({
-            "adultCount": adultCountInput.value,
-            "roomNo": 1,
-            "cost": 0,
-            "userId": userId,
-            "ferryId": currentTicket.ferryId
-        });
-        const response = await fetch('https://localhost:5001/api/ticket/' + id, {
-            method: 'PUT',
-            body,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-        });
-        if(!response.ok) {
-            const { error } = await response.json();
-            throw new Error(error);
-        }
+        const body = {
+            adultCount: adultCountInput.value,
+            roomNo: 1,
+            cost: 0,
+            userId,
+            ferryId: currentTicket.ferryId
+        };
+        await api('ticket/' + id, 'PUT', body)
         window.location.href = '/Ticket';
     } catch(err) {
         ticketToastBody.innerText = err.message;

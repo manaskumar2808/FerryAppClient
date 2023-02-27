@@ -1,9 +1,9 @@
+import { api } from "../utility/api.js";
+
 const ferryListEle = document.querySelector("#FerryListID");
 
 const fetchFerries = async () => {
-    const url = 'https://localhost:5001/api/ferry' + window.location.search;
-    const response = await fetch(url);
-    const ferries = await response.json();
+    const ferries = await api('ferry' + window.location.search);
     return ferries;
 }
 

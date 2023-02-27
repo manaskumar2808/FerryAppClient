@@ -23,19 +23,27 @@
             />
         </div>
         <div class="SignupFields">
-            <form id="SignupForm">
+            <form id="SignupForm" autocomplete=off>
                 <div validation-summary="ModelOnly" class="text-danger"></div>
                 <legend class="SignupLegend">Signup</legend>
                 <div class="form-group" id="UserNameField">
                     <label for="UserName" class="control-label">Username</label>
-                    <input for="UserName" id="UserName" class="form-control" required placeholder="Eg. john@doe123" />
+                    <input for="UserName" id="UserName" class="form-control" required placeholder="Eg. john@doe123" autocomplete=off />
                     <span id="UserNameValidator" class="form-text text-danger"></span>
                 </div>
                 <div style="height: 20px;"></div>
-                <div class="form-group" id="NameField">
-                    <label for="Name" class="control-label">Name</label>
-                    <input for="Name" id="Name" type="text" class="form-control" placeholder="Eg. John Doe" />
-                    <span id="NameValidator" class="form-text text-danger"></span>
+                <div class="FieldRow">
+                    <div class="form-group" id="FirstNameField">
+                        <label for="FirstName" class="control-label">First Name</label>
+                        <input for="FirstName" id="FirstName" type="text" class="form-control" placeholder="Eg. John" />
+                        <span id="FirstNameValidator" class="form-text text-danger"></span>
+                    </div>
+                    <div style="width: 5px;"></div>
+                    <div class="form-group" id="LastNameField">
+                        <label for="LastName" class="control-label">Last Name</label>
+                        <input for="LastName" id="LastName" type="text" class="form-control" placeholder="Eg. Doe" />
+                        <span id="LastNameValidator" class="form-text text-danger"></span>
+                    </div>
                 </div>
                 <div style="height: 20px;"></div>
                 <div class="form-group" id="EmailField">

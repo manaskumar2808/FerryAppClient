@@ -1,14 +1,9 @@
+import { api } from "../utility/api.js";
+
 const ticketListEle = document.querySelector("#TicketListID");
 
 const fetchTickets = async () => {
-    const token = localStorage.getItem('token');
-    const response = await fetch('https://localhost:5001/api/ticket' + window.location.search, {
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-        },
-    });
-    const tickets = await response.json();
+    const tickets = await api('ticket/' + window.location.search);
     return tickets;
 }
 

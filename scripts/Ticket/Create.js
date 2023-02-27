@@ -1,3 +1,5 @@
+import { api } from "../utility/api.js";
+
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 
@@ -16,27 +18,15 @@ ticketCreateForm.addEventListener('submit', e => bookTicket(e));
 
 const bookTicket = async (event) => {
     event.preventDefault();
-    const body = JSON.stringify({
-        "adultCount": adultCountInput.value,
-        "roomNo": 1,
-        "cost": 0,
-        "userId": userId,
-        "ferryId": ferryId
-    });
+    const body = {
+        adultCount: adultCountInput.value,
+        roomNo: 1,
+        cost: 0,
+        userId,
+        ferryId
+    };
     try {
-        const token = localStorage.getItem('token');
-        const response = await fetch('https://localhost:5001/api/ticket', {
-            method: 'POST',
-            body,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-        });
-        if(!response.ok) {
-            const { error } = await response.json();
-            throw new Error(error);
-        }
+        await api('ticket', 'POST', body);
         window.location.href = '/Ticket';
     } catch(err) {
         ticketToastBody.innerText = err.message;
